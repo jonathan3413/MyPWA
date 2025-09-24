@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My PWA App</title>
+  <title>Gabut Abang Awak</title>
   <link rel="stylesheet" href="style.css">
-  <!-- manifest PWA -->
   <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#200e3a">
 </head>
 <body>
-  <h1>Hello, ini aplikasi PWA 🚀</h1>
-  <p>Bisa di-install langsung dari browser.</p>
+  <header class="app-header">
+    <h1>Gabut Abang Awak</h1>
+    <p>Aplikasi PWA contoh buatan Mispar 🚀</p>
+  </header>
 
-  <script src="script.js"></script>
+  <main class="app-main">
+    <div class="card">
+      <h2>Selamat Datang!</h2>
+      <p>Ini adalah aplikasi berbasis <b>PWA</b>.  
+      Kamu bisa install ke layar utama HP dan buka tanpa internet.</p>
+      <button class="btn" id="helloBtn">Klik Aku</button>
+      <p id="output"></p>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2025 Mispar. Dibuat dengan ❤️ dan JavaScript.</p>
+  </footer>
+
+  <script src="app.js"></script>
   <script>
-    // Daftarkan service worker
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker terdaftar'))
+        .catch(err => console.error('SW gagal:', err));
     }
   </script>
 </body>
